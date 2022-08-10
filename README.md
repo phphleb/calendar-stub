@@ -31,6 +31,13 @@ $date = $converter
         ->setPeriodName('2 months')
         ->getStartDate()
         ->format('Y-m-d H:i:s');
+        
+// Получение даты два календарных месяца вперед от текущего времени.
+$date = $converter
+        ->setPeriodName('2 months')
+        ->setStartDate(new DateTime())
+        ->getEndDate()
+        ->format('Y-m-d H:i:s');
 
 // Получение даты два календарных месяца назад от заданного времени (28го февраля 2017).
 $endPeriod = new DateTime('2017-02-28 00:00::00');

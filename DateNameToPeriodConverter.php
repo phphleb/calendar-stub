@@ -15,7 +15,7 @@ class DateNameToPeriodConverter
 {
     private const TIME_SECTIONS = ['day', 'week', 'month', 'quarter', 'year', 'all'];
 
-    private string $parameter;
+    private ?string $parameter;
 
     private ?DateTime $endDate = null;
 
@@ -104,6 +104,9 @@ class DateNameToPeriodConverter
         if ($this->startDate) {
             return $this->startDate;
         }
+        if (!$this->endDate) {
+            $this->endDate = new DateTime('now');
+        }
 
         return $this->getFromParseName($this->createParam($this->parameter), $this->endDate, false);
     }
@@ -128,16 +131,17 @@ class DateNameToPeriodConverter
             }
         } else {
             $fullMonths = (int)round(abs($monthToAdd) / 12);
+            echo "fullMonth=$fullMonths";
             $year -= $fullMonths;
             $permanentMonths = (abs($monthToAdd) - $fullMonths * 12);
-
+            echo "permanentMonths=$permanentMonths";
             if ($month > $permanentMonths) {
                 $month = $month - $permanentMonths;
             } else {
                 if ($month < $permanentMonths) {
                     $year -= 1;
-                    $month = 12 - ($permanentMonths - $month);
                 }
+                $month = 12 - ($permanentMonths - $month);
             }
         }
         $month = intval($month) ?: 1;

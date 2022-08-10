@@ -1,0 +1,24 @@
+{
+    "name": "phphleb/calendar-stub",
+    "description": "Solving the problem with calendar calculations in PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Foma Tuturov",
+            "email": "fomiash@yandex.ru"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Phphleb\\CalendarStub\\": "/"
+        }
+    },
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "minimum-stability": "dev"
+}

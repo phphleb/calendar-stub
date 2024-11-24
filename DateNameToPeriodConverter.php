@@ -34,7 +34,7 @@ class DateNameToPeriodConverter
      * Переданное значение периода "all" устанавливает start date
      * в "начало времён" UNIX, то есть означает "за всё время".
      */
-    public function __construct(string $parameter = null)
+    public function __construct(?string $parameter = null)
     {
         $this->parameter = $parameter;
     }
